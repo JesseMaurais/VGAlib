@@ -16,8 +16,6 @@
 #include "farseg.h"
 #include "VGA.h"
 
-
-
 /*******************************************************************************
  *
  *
@@ -748,7 +746,7 @@ int vgaGetInfo(VGAreturns result)
  *	takes effect the next time VGA_SET_MODE is called.
  */
 
-boolean vgaSetTextModeScanLines(int scanlines)
+BOOL vgaSetTextModeScanLines(int scanlines)
 {
 	__dpmi_regs regs;
 	regs.h.al = scanlines;
@@ -786,7 +784,7 @@ boolean vgaSetTextModeScanLines(int scanlines)
  *	Turns on or off the video refresh on the display devices.
  */
 
-boolean vgaStateOption(int option, int state)
+BOOL vgaStateOption(int option, int state)
 {
 	__dpmi_regs regs;
 	regs.h.al = state;
@@ -801,7 +799,7 @@ boolean vgaStateOption(int option, int state)
  *	usage or port addresses conflict between the two adapters.
  */
 
-boolean vgaSwitchActiveDisplay(int function, void *buffer)
+BOOL vgaSwitchActiveDisplay(int function, void *buffer)
 {
 	__dpmi_regs regs;
 	regs.h.al = function;
@@ -869,7 +867,7 @@ int vgaGetDCC(vgaReturns status)
 	return -1;
 }
 
-boolean vgaSetDCC(int active, int inactive)
+BOOL vgaSetDCC(int active, int inactive)
 {
 	__dpmi_regs regs;
 	regs.h.al = VGA_SET;
@@ -889,7 +887,7 @@ boolean vgaSetDCC(int active, int inactive)
  *
  ******************************************************************************/
 
-boolean vgaGetStateInfo(VGAstateInfo *state)
+BOOL vgaGetStateInfo(VGAstateInfo *state)
 {
 	__dpmi_regs regs;
 	regs.x.bx = 0x00; /* Implementation type? */
@@ -921,7 +919,7 @@ boolean vgaGetStateInfo(VGAstateInfo *state)
  *
  ******************************************************************************/
 
-boolean vgaVideoState(int subfunction, int flags, __dpmi_regs *regs)
+BOOL vgaVideoState(int subfunction, int flags, __dpmi_regs *regs)
 {
 	regs->h.al = subfunction;
 	regs->x.cx = flags;
@@ -953,7 +951,7 @@ int vgaQueryStateBufferSize(int flags)
  *	Loads the given buffer with the requested state data.
  */
 
-boolean vgaSaveState(int flags, void *buffer, int length)
+BOOL vgaSaveState(int flags, void *buffer, int length)
 {
 	__dpmi_regs regs;
 	/* Initialize the buffer to zero */
@@ -976,7 +974,7 @@ boolean vgaSaveState(int flags, void *buffer, int length)
  *	Restores a previously saved state from the given buffer.
  */
 
-boolean vgaRestoreState(int flags, void *buffer, int length)
+BOOL vgaRestoreState(int flags, void *buffer, int length)
 {
 	__dpmi_regs regs;
 	/* Copy data from allocated memory into transfer buffer */

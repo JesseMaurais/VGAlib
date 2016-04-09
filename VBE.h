@@ -21,6 +21,8 @@
 #ifndef VBE_h
 #define VBE_h
 
+#include "VGA.h"
+
 /*
  * Tells compiler to allocate structure with data fields packed to bit or byte
  * alignment. This is needed since the vbe BIOS which will be queried for this
@@ -47,7 +49,7 @@
 
 /* VBE functions */
 
-#define VBE_VESA_FUNCTION			0x4f	/* VESA base flag */
+#define VBE_VESA_FUNCTION			0x4F	/* VESA base flag */
 #define VBE_GET_INFO				0x00	/* Get SVGA information */
 #define VBE_GET_MODE_INFO			0x01	/* Get SVGA mode information */
 #define VBE_SET_MODE				0x02	/* Set SVGA video mode */
@@ -58,8 +60,8 @@
 #define VBE_DISPLAY_START			0x07	/* Get/Set display start */
 #define	VBE_DAC_BITS				0x08	/* Palette bit size control */
 #define VBE_DAC_DATA				0x09	/* Get/Set palette data */
-#define VBE_PROTECTED_MODE_INTERFACE		0x0a	/* Code for 32 bit protected mode */
-#define VBE_PIXEL_CLOCK				0x0b	/* Get/Set pixel clock in units of Hz */
+#define VBE_PROTECTED_MODE_INTERFACE		0x0A	/* Code for 32 bit protected mode */
+#define VBE_PIXEL_CLOCK				0x0B	/* Get/Set pixel clock in units of Hz */
 
 /* Supplemental functions */
 
@@ -71,7 +73,7 @@
 
 /* Status flags */
 
-#define VBE_SUPPORTED				0x4f	/* Function supported */
+#define VBE_SUPPORTED				0x4F	/* Function supported */
 #define VBE_SUCCEEDED				0x00	/* Function call succeeded */
 #define VBE_FAILED				0x01	/* Function call failed */
 #define VBE_FAILED_WITH_CONFIGURATION		0x02	/* Invalid function for current configurations */
@@ -84,7 +86,7 @@
 #define VBE_AF					0x1800  /* Reserved for VBE/AF, must be clear */
 #define VBE_LINEAR_FRAME_BUFFER			0x4000	/* Exclusively request linear frame buffer */
 #define VBE_NO_CLEAR				0x8000	/* Don't zero video memory on display change */
-#define VBE_MODE_MASK				0xfe00	/* Mask away everything but the mode number */
+#define VBE_MODE_MASK				0xFE00	/* Mask away everything but the mode number */
 
 /* Standard VESA supported modes */
 
@@ -98,12 +100,12 @@
 #define VBE_MODE_1280x1024_8			0x107
 #define VBE_MODE_80x60				0x108
 #define VBE_MODE_132x25				0x109
-#define VBE_MODE_132x43				0x10a
-#define VBE_MODE_132x50				0x10b
-#define VBE_MODE_132x60				0x10c
-#define VBE_MODE_320x200_5_5_5			0x10d
-#define VBE_MODE_320x200_5_6_5			0x10e
-#define VBE_MODE_320x200_8_8_8			0x10f
+#define VBE_MODE_132x43				0x10A
+#define VBE_MODE_132x50				0x10B
+#define VBE_MODE_132x60				0x10C
+#define VBE_MODE_320x200_5_5_5			0x10D
+#define VBE_MODE_320x200_5_6_5			0x10E
+#define VBE_MODE_320x200_8_8_8			0x10F
 #define VBE_MODE_640x480_5_5_5			0x110
 #define VBE_MODE_640x480_5_6_5			0x111
 #define VBE_MODE_640x480_8_8_8			0x112
@@ -114,9 +116,9 @@
 #define VBE_MODE_1024x768_5_6_5			0x117
 #define VBE_MODE_1024x768_8_8_8			0x118
 #define VBE_MODE_1280x1024_5_5_5		0x119
-#define VBE_MODE_1280x1024_5_6_5		0x11a
-#define VBE_MODE_1280x1024_8_8_8		0x11b
-#define VBE_MODE_SPECIAL_MEMORY_ACCESS		0x81ff
+#define VBE_MODE_1280x1024_5_6_5		0x11A
+#define VBE_MODE_1280x1024_8_8_8		0x11B
+#define VBE_MODE_SPECIAL_MEMORY_ACCESS		0x81FF
 
 /* VBE_VIDEO_STATE */
 

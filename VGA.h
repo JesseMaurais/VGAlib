@@ -19,6 +19,14 @@
 #ifndef VGA_h
 #define VGA_h
 
+typedef unsigned char  BYTE;
+typedef unsigned short WORD;
+typedef unsigned long  LINE;
+typedef unsigned int   BOOL;
+
+const BOOL FALSE = 0;
+const BOOL TRUE = 1;
+
 /*
  * Tells compiler to allocate structure with data fields packed to bit or byte
  * alignment. This is needed since the VGA BIOS which will be queried for this
@@ -49,21 +57,21 @@
 #define VGA_SCROLL_ACTIVE_PAGE_DOWN		0x07	// Scrolls down requested number of lines 
 #define VGA_GET_ATTRIBUTE_AT_CURSOR		0x08	// Read an attribute at cursor 
 #define VGA_SET_ATTRIBUTE_AT_CURSOR		0x09	// Write an attribute at cursor 
-#define VGA_WRITE_CHAR_AT_CURSOR		0x0a	// Write a character at cursor 
-#define CGA_SET_COLOR_PALETTE			0x0b	// Emulate 1 of 2 CGA palettes 
-#define VGA_SET_PIXEL				0x0c	// Write pixel 
-#define VGA_GET_PIXEL				0x0d	// Read pixel 
-#define VGA_WRITE_TTY_CHAR			0x0e	// Writes a character, advances text cursor 
-#define VGA_GET_CURRENT_VIDEO_STATE		0x0f	// Read screen width, mode, and page 
-#define VGA_DAC					0x10	// Device Attribute Controller 
+#define VGA_WRITE_CHAR_AT_CURSOR		0x0A	// Write a character at cursor 
+#define CGA_SET_COLOR_PALETTE			0x0B	// Emulate 1 of 2 CGA palettes 
+#define VGA_SET_PIXEL				0x0C	// Write pixel 
+#define VGA_GET_PIXEL				0x0D	// Read pixel 
+#define VGA_WRITE_TTY_CHAR			0x0E	// Writes a character, advances text cursor 
+#define VGA_GET_CURRENT_VIDEO_STATE		0x0F	// Read screen width, mode, and page 
+#define VGA_DAC					0x10	// Device attribute controller 
 #define VGA_CHAR_GENERATOR			0x11	// Font 
 #define VGA_ALTERNATE_SELECT			0x12	// Extended registers 
 #define VGA_WRITE_STRING			0x13	// Draw string of characters on display 
 #define VGA_LOAD_LCD_CHARACTER_FONT		0x14	// ? 
 #define VGA_GET_PHYSICAL_DISPLAY_PARAMETERS	0x15	// ? 
-#define VGA_DISPLAY_COMBINATION_CODE		0x1a	// Display combination code 
-#define VGA_GET_STATE_INFO			0x1b	// Return functionality/state information 
-#define VGA_VIDEO_STATE				0x1c	// Video state information 
+#define VGA_DISPLAY_COMBINATION_CODE		0x1A	// Display combination code 
+#define VGA_GET_STATE_INFO			0x1B	// Return functionality/state information 
+#define VGA_VIDEO_STATE				0x1C	// Video state information 
 
 /******************************************************************************
  *
@@ -92,8 +100,8 @@
 #define VGA_GET_PALETTE_RANGE			0x17	// Read from a range of DAC registers 
 #define VGA_SET_PEL_MASK			0x18	// ? 
 #define VGA_GET_PEL_MASK			0x19	// ? 
-#define VGA_GET_COLOR_PAGE			0x1a	// Returns the 256 color register paging mode 
-#define VGA_GRAY_SCALE_PALETTE			0x1b	// Converts DAC block registers to gradient 
+#define VGA_GET_COLOR_PAGE			0x1A	// Returns the 256 color register paging mode 
+#define VGA_GRAY_SCALE_PALETTE			0x1B	// Converts DAC block registers to gradient 
 
 // VGA_CHAR_GENERATOR
 
@@ -145,8 +153,8 @@
 #define	VGA_STATE_HARDWARE			0x01
 #define VGA_STATE_BIOS_DATA			0x02
 #define VGA_STATE_DAC				0x04
-#define VGA_STATE_MEMORY_MAP			0x0d
-#define VGA_STATE_REGISTERS			0x0f
+#define VGA_STATE_MEMORY_MAP			0x0D
+#define VGA_STATE_REGISTERS			0x0F
 
 #define VGA_QUERY				0x00	// Get minimum buffer size required to store state 
 #define VGA_SAVE				0x01	// Loads buffer with requested state data 
@@ -156,46 +164,46 @@
 
 typedef struct
 {
-	line StaticTablePointer;
-	byte CurrentMode;
-	word nCharColumns;
-	word BytesPerDisplayPage;
-	word OffsetOfCurrentPage;
-	byte CursorPositions[8][2];
-	byte CursorStartLine;
-	byte CursorEndLine;
-	byte ActiveDisplayPage;
-	word CRTC;
-	byte ModeRegister;
-	byte ColorRegister;
-	byte nRows;
-	byte CharHeight;
-	byte ActiveDCC;
-	byte InactiveDCC;
-	word nColors;
-	word nPages;
-	byte nScanLines;
-	byte PrimaryCharGenerator;
-	byte SecondaryCharGenerator;
-	byte StateInfo;
-	byte Reserved0[3];
-	byte TotalMemory;
-	byte SavePointerState;
-	byte Reserved1[13];
+	LINE StaticTablePointer;
+	BYTE CurrentMode;
+	WORD nCharColumns;
+	WORD BytesPerDisplayPage;
+	WORD OffsetOfCurrentPage;
+	BYTE CursorPositions[8][2];
+	BYTE CursorStartLine;
+	BYTE CursorEndLine;
+	BYTE ActiveDisplayPage;
+	WORD CRTC;
+	BYTE ModeRegister;
+	BYTE ColorRegister;
+	BYTE nRows;
+	BYTE CharHeight;
+	BYTE ActiveDCC;
+	BYTE InactiveDCC;
+	WORD nColors;
+	WORD nPages;
+	BYTE nScanLines;
+	BYTE PrimaryCharGenerator;
+	BYTE SecondaryCharGenerator;
+	BYTE StateInfo;
+	BYTE Reserved0[3];
+	BYTE TotalMemory;
+	BYTE SavePointerState;
+	BYTE Reserved1[13];
 
 } VGAstate;
 
 typedef struct
 {
-	byte Modes[3];
-	line Reserved0;
-	byte AvailableScanLines;
-	byte AvailableCharBlocks;
-	byte nActiveBlocks;
-	byte Functions[2];
-	word Reserved1;
-	byte SavePointerFunction;
-	byte Reserved2;
+	BYTE Modes[3];
+	LINE Reserved0;
+	BYTE AvailableScanLines;
+	BYTE AvailableCharBlocks;
+	BYTE nActiveBlocks;
+	BYTE Functions[2];
+	WORD Reserved1;
+	BYTE SavePointerFunction;
+	BYTE Reserved2;
 
 } VGAstatic;
 

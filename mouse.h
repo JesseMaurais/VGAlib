@@ -33,12 +33,12 @@
 #define MC_LIMIT_HORIZONTAL			0x07	/* Limit horizontal cursor movement */
 #define MC_LIMIT_VERTICAL			0x08	/* Limit vertical cursor movement */
 #define MC_SET_CURSOR_GRAPHIC			0x09
-#define MC_SET_TEXT_CURSOR			0x0a
-#define MC_GET_MICKEYS				0x0b
-#define MC_USER_INTERRUPT_SUBROUTINE		0x0c
-#define MC_LIGHT_PEN_EMULATION_ON		0x0d
-#define MC_LIGHT_PEN_EMULATION_OFF		0x0e
-#define MC_MICKEY_PIXEL_RATIO			0x0f
+#define MC_SET_TEXT_CURSOR			0x0A
+#define MC_GET_MICKEYS				0x0B
+#define MC_USER_INTERRUPT_SUBROUTINE		0x0C
+#define MC_LIGHT_PEN_EMULATION_ON		0x0D
+#define MC_LIGHT_PEN_EMULATION_OFF		0x0E
+#define MC_MICKEY_PIXEL_RATIO			0x0F
 #define MC_HIDDEN_REGION			0x10
 #define MC_DOUBLE_SPEED_THRESHOLD		0x13
 #define MC_SWAP_INTERRUPT_SUBROUTINES		0x14
@@ -47,12 +47,12 @@
 #define MC_RESTORE_STATE			0x17
 #define MC_SET_USER_INTERRUPT_ADDRESS		0x18
 #define MC_GET_USER_INTERRUPT_ADDRESS		0x19
-#define MC_SET_SENSITIVITY			0x1a
-#define MC_GET_SENSITIVITY			0x1b
-#define MC_INTERRUPT_RATE			0x1c
-#define MC_SET_DISPLAY_PAGE			0x1d
-#define MC_GET_DISPLAY_PAGE			0x1e
-#define MC_DISABLE				0x1f
+#define MC_SET_SENSITIVITY			0x1A
+#define MC_GET_SENSITIVITY			0x1B
+#define MC_INTERRUPT_RATE			0x1C
+#define MC_SET_DISPLAY_PAGE			0x1D
+#define MC_GET_DISPLAY_PAGE			0x1E
+#define MC_DISABLE				0x1F
 #define MC_ENABLE				0x20
 #define MC_RESET				0x21
 #define MC_SET_LANGUAGE				0x22
@@ -61,7 +61,7 @@
 
 /* MC_INITIALIZE */
 
-#define MC_INSTALLED				0xffff
+#define MC_INSTALLED				0xFFFF
 
 /* MC_GET_STATUS */
 

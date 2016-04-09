@@ -4,25 +4,26 @@
  *
  */
 
+#include "farset.h"
 
 long near2far(long address)
 {
-	return ((address & 0xffff0000) >> 12) + (address & 0xffff);
+	return ((address & 0xFFFF0000) >> 12) + (address & 0xFFFF);
 }
 
 long near3far(long segment, long offset)
 {
-	return ((segment & 0xffff) << 4) + (offset & 0xffff);
+	return ((segment & 0xFFFF) << 4) + (offset & 0xFFFF);
 }
 
 short far2seg(long address)
 {
-	return (address >> 4) & 0xfffff;
+	return (address >> 4) & 0xFFFFF;
 }
 
 short far2off(long address)
 {
-	return address & 0xf;
+	return address & 0xF;
 }
 
 long far2near(long address)
