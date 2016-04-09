@@ -1,0 +1,8 @@
+These are tools for programming the Video Grpahics Array (VGA) using additions
+from the Video Electronics Standards Association (VESA) including their tools
+for the Video BIOS Extension (VBE) version 3. There is also an extensive list
+of functions for programming the mouse at the level of hardware interrupts.
+
+A lot of this stuff is quite old. I wrote much of it when I was learning how to
+do graphics programming in DOS. As it is, the code will only compile for the
+DJGPP toolchain, which is a port of GCC to DOS.  
